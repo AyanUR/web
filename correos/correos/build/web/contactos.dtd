@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT contacto (administrador,profesor+,alumno*)>
+<!ELEMENT administrador (#PCDATA)>
+<!ELEMENT profesor (#PCDATA)>
+<!ELEMENT alumno (#PCDATA)>
+<!ATTLIST administrador nombre CDATA #REQUIRED email CDATA #REQUIRED contrasena CDATA #REQUIRED>
+<!ATTLIST profesor nombre CDATA #REQUIRED grupo CDATA #REQUIRED email CDATA #REQUIRED contrasena CDATA #REQUIRED>
+<!ATTLIST alumno nombre CDATA #REQUIRED grupo CDATA #REQUIRED email CDATA #REQUIRED contrasena CDATA #REQUIRED>

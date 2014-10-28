@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>enviador de mails</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="valida.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script type="text/javascript" src="autocompletado.js"></script>
+    </head>
+    <body style="color:brown;font-size:21px;" onload="retrollamada();input();">
+        <form action="enviamail" method="post">
+            <input id="usu" type="text" name="par5" hidden/>
+            <input id="nom" type="text" name="par6" hidden/>
+            <br>de:
+            <input id="de" type="text" name="par0"/>
+            <br>contrasena<input type="password" name="par4"/>
+            <br>
+            <div>
+                <label for="tags">para: </label>
+                <input id="tags" type="text" name="par1" onclick="completa();"/>
+            </div>
+            <br>asunto:
+            <input type="text" name="par2" />
+            <br>mensaje:
+            <br><textarea name="par3" rows="25" cols="30"></textarea>
+            <br><input type="radio" value="enviado" name="par7">envia<br>
+            <input type="radio" value="borrador" name="par7">gurada borrador
+            <br><input type="submit" value="entrar"/>
+            <br><input type="reset" />
+        </form>
+    </body>
+</html>

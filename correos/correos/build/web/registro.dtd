@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT registro (enviado,borrador)>
+<!ELEMENT enviado (administrador?,profesor*,alumno*)>
+<!ELEMENT borrador (administrador?,profesor*,alumno*)>
+<!ATTLIST administrador email CDATA #REQUIRED>
+<!ATTLIST profesor email CDATA #REQUIRED>
+<!ATTLIST alumno email CDATA #REQUIRED>
+<!ELEMENT administrador (para*)>
+<!ELEMENT profesor (para*)>
+<!ELEMENT alumno (para*)>
+<!ATTLIST para nombre CDATA #IMPLIED email CDATA #IMPLIED>
+<!ELEMENT para (mensaje+)>
+<!ATTLIST mensaje fechahora CDATA #REQUIRED  asunto CDATA #IMPLIED>
+<!ELEMENT mensaje (#PCDATA)>

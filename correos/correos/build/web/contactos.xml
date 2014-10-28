@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE contacto SYSTEM "contactos.dtd">
+<contacto>
+  <administrador nombre="ayan" email="triple_aayani@hotmail.com" contrasena="toor" />
+  <profesor nombre="ruben" grupo="2cm5" email="rubenperedo@hotmail.com" contrasena="peredo" />
+  <profesor nombre="roberto" grupo="2cm2" email="tecla@hotmail.com" contrasena="tecla" />
+  <profesor nombre="norman" grupo="2cm2" email="norman@hotmail.com" contrasena="norman" />
+  <alumno nombre="adan" grupo="2cm2" email="a1y3a1n7@gmail.com" contrasena="urban" />
+</contacto>

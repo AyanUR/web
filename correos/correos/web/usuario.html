@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>correo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="valida.js"></script>
+        <script type="text/javascript" src="enbor.js"></script>
+    </head>
+    <body style="color:navy;font-size:27px" onload="retrollamada();saludo();">
+    <br><center><p id="saludo"></p>
+    <br><a id="envia" href="">nuevo</a></center>
+    <div id="soloadmin">
+        <ul id="uladmin">
+            <li><a href="interfazadmin.html?tipo=agregar">agregar usuario</a></li>
+            <li><a href="interfazadmin.html?tipo=eliminar">eliminar usuario</a></li>
+            <li><a href="interfazadmin.html?tipo=modificar">modificar usuario</a></li>
+        </ul>
+    </div>
+    <div>
+        <ul id="xml">
+            <li><input type="button" value="enviados" onclick="ajax(this.value);"/></li>
+            <li><input type="button" value="borradores" onclick="ajax(this.value);"></li>
+            <li><a href="index.html">cerrar session</a></li>
+        </ul>
+    </div>
+    <p id="datosusuario" hidden></p>
+    <div>
+        <table id="tabla">
+        </table>
+    </div>
+    </body>
+</html>

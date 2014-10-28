@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE registro SYSTEM "registro.dtd">
+<registro>
+  <enviado>
+    <administrador email="triple_aayani@hotmail.com">
+      <para nombre="ruben" email="rubenperedo@hotmail.com">
+        <mensaje fechahora="2013/11/25-21:25" asunto="hola profe">manana dara clase?</mensaje>
+      </para>
+      <para nombre="ayan" email="a1y3a1n7@gmail.com">
+        <mensaje fechahora="2013:11:29-6:1:52" asunto="hola">UN MENSAJE EN JAVAMAIL</mensaje>
+      </para>
+    </administrador>
+    <alumno email="a1y3a1n7@gmail.com">
+      <para nombre="adan" email="triple_aayani@hotmail.com">
+        <mensaje fechahora="2013:11:27-1:14:38" asunto="hol">hola mundo L:D</mensaje>
+        <mensaje fechahora="2013:11:29-10:28:24" asunto="hola">como estas?</mensaje>
+      </para>
+    </alumno>
+  </enviado>
+  <borrador>
+    <alumno email="a1y3a1n7@gmail.com">
+      <para nombre="adan" email="tecla@hotmail.com">
+        <mensaje fechahora="2013:11:29-10:14:9" asunto="como estas">hola</mensaje>
+        <mensaje fechahora="2013:11:29-10:14:32" asunto="profe">man</mensaje>
+        <mensaje fechahora="2013:11:29-10:14:11" asunto="man">estas ak?</mensaje>
+      </para>
+      <para nombre="adan" email="norman@hotmail.com">
+        <mensaje fechahora="2013:11:29-10:37:9" asunto="norman">scort</mensaje>
+      </para>
+    </alumno>
+    <administrador email="triple_aayani@hotmail.com">
+      <para nombre="ayan" email="a1y3a1n7@gmail.com">
+        <mensaje fechahora="2013:11:29-6:3:30" asunto="mensajes">este mensaje se guarda en borrador</mensaje>
+      </para>
+    </administrador>
+  </borrador>
+</registro>

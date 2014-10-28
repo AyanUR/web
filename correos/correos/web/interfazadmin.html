@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>administrar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="valida.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script type="text/javascript" src="interfazadmin.js"></script>
+    </head>
+    <body onload="urladmin()">
+        <form action="administra" method="post"><br><br>
+        <div id="agregar" >
+            <br>nombre:<input type="text" name="par0" />
+            <br>grupo:<input type="text" name="par1" />
+            <br>email:<input type="text" name="par2" />
+            <br>contrasena:<input type="text" name="par3" />
+            <br><select id="usuario" name="par4" style="color:blueviolet;font-size:21px;">
+            <option value="profesor">profesor</option>
+            <option value="alumno">alumno</option>
+            </select>
+        </div>
+        <div id="eliminar">
+                <div>
+                    <label for="tags">email del usuario a eliminar: </label>
+                    <input id="tags" type="text" name="par6" onclick="completa('eli');"/>
+                </div>
+        </div>
+        <div id="modificar">
+            <div>
+                <label for="tagss">email de usaurio a modificar: </label>
+                <input id="tagss" type="text" name="par7" onclick="completa('mod');"/>
+            </div>
+        </div>
+        <input id="selector" type="text" name="par5" hidden>
+        <input type="submit"/>
+        </form>
+    </body>
+</html>

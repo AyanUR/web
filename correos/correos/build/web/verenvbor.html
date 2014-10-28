@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mensaje</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="vermensaje.js"></script>
+    </head>
+    <body style="color:brown;font-size:21px;" onload="retrollamada();">
+        <form action="enviamail" method="post">
+            <input id="usu" type="text" name="par5" hidden/>
+            <input id="nom" type="text" name="par6" hidden/>
+            <br>de:
+            <input id="de" type="text" name="par0"/>
+            <br><p id="contrasena"></p><input id="pass" type="password" name="par4"/>
+            <br>
+            <div>
+                <label for="tags">para: </label>
+                <input id="tags" type="text" name="par1"/>
+            </div>
+            <br>asunto:
+            <input id="asunto" type="text" name="par2" />
+            <br>mensaje:
+            <br><textarea id="mensaje" name="par3" rows="25" cols="30"></textarea>
+            <br><input id="envia" type="submit" value="enviar email" />
+            <br><input id="limpia" type="reset" />
+        </form>
+    </body>
+</html>

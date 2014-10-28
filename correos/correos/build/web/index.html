@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>proyecto final correos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="valida.js"></script>
+    </head>
+    <body style="color:brown;font-size:31px;">
+        <center><br><br>
+        <select id="usuario" name="par2" style="color:blueviolet;font-size:21px;">
+            <option value="administrador">administrador</option>
+            <option value="profesor">profesor</option>
+            <option value="alumno">alumno</option>
+        </select>
+        <br>usuario<input id="email" type="email" name="par0"/>
+        <br>contrasena<input id="contrasena" type="password" name="par1" />
+        <br><input type="button" onclick="validaUsuario();" value="valida" />
+        <br><div id="entrar"></div>
+        </center>
+    </body>
+</html>
