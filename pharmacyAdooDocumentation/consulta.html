@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>consulta de medicamentos</title>
+		<script type="text/javascript">
+			function test(){
+				 var object=document.getElementById("par");
+				 //alert(object);
+				 object.innerHTML="this is a new parragraf";
+			}
+		</script>
+	</head>
+	<body>
+		<h1 align="center">bienbenido<br>llene almenos un campo del medicamento</h1>
+		nombre:	<input type="text" name="name" />
+		codigo de barras:	<input type="text" name="barcode" />
+		activo:	<input type="text" name="activo" />
+			<p id="par">parravo viejo</p>
+		<input type="button" onclick="test();" value="precioname!" />
+	</body>
+</html>

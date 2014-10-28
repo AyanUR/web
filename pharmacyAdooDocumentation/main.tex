@@ -1,0 +1,312 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{float}
+\begin{document}
+	\frontmatter
+		\include{portada/portada}
+		\begin{minipage}{0.15\textwidth}
+	        	\includegraphics[width=7\textwidth]{cu.eps}
+		\end{minipage}
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{p{3cm} p{11cm}}
+			\hline
+				Caso de Uso & Buscar medicamento\\
+			\hline 
+				Resumen & Este caso de uso descrive la forma en como el servidor busca un medicamento\\
+			\hline
+				PreCondicion&El usuario tuvo que aver ingresado al servidor web y solicitado alguna informacion\\
+			\hline
+				Actor & Servidor Web\\
+			\hline
+				Descripcion&\\
+				Flujo Principal&el servidor prepara la consulta
+					\\&el servidor ejecuta la consulta
+					\\&el servidor recupera el resultado de la consulta
+					\\&el servidor imprime el resultado de la consulta (codigo de barras, nombre,activo(s),docificacion,indicaciones medicas) del medicamento\\
+			\hline
+				Flujo Secundario&el servidor prepara la consulta\\
+				"consulta no valida"&el servidor ejecuta la consulta
+				\\&mysql lanza una excepcion de consulta no valida
+				\\&el servidor imprime la excepcion\\
+			\hline
+				Flujo Secundario&el servidor prepara la consulta\\
+				"ningun resultado"&el servidor ejecuta la consulta
+				\\&mysql no regresa ningun resultado
+				\\&el servidor imprime no hay resultados para la consulta\\
+			\hline
+				PosCondicion&el servidor regresa al menu principal\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{p{3cm} p{11cm}}
+			\hline
+				Caso de Uso & Consultar Medicamento\\
+			\hline 
+				Resumen &  Mediante este caso de uso se podra consultar el codigo de barras de un medicamento asi como su nombre el o los activos que contiene, para que sirve el medicamento y la docificacion.\\
+			\hline
+				PreCondicion&que el Usuario aya ingresado ala pagina web de nuestro servidor\\
+			\hline
+				Actor & Cliente o Vendedor o Administrador\\
+			\hline
+				Descripcion&\\
+ 				Flujo principal&
+					el usuario ingresa ala pagina web del servidor
+					\\&el servidor le pide que proporcione el codigo de barras del medicamento o el nombre o las sales del medicamento
+					\\&el usuario llena uno de los 3 campos
+					\\&se ejecuta el caso de uso Buscar Medicamento\\
+			\hline
+				Flujo secundario & el usuario ingresa ala pagina web del servidor\\
+				"pagina web incorrecta" & el navegador le indica que la pagina ingresada no existe\\
+			\hline
+				Flujo secundario & el usuario ingresa ala pagina web del servidor\\
+				"el usuario no proporsiona ni un campo" & el servidor le pide que proporcione el codigo de barras del medicamento o el nombre o las sales del medicamento
+					\\&el usuario no llena ni un campo
+					\\&el servidor determina que no lleno ni un campo
+					\\&el servidor Imprime un mensaje diciendo Deve llenar almenos un campo\\
+			\hline
+				Flujo secundario & el usuario ingresa ala pagina web del servidor\\
+				"el medicamento no esta en la Base de Datos" & el servidor le pide que proporcione el codigo de barras del medicamento o el nombre o las sales del medicamento
+					\\&el usuario llena uno de los 3 campos
+					\\&se ejecuta el caso de uso Buscar Medicamento\\
+			\hline
+				PosCondicion&El usuario tubo que regresar al menu prinsipal de la pagina web\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{p{3cm} p{11cm}}
+			\hline
+				Caso de Uso & Añadir medicamento ala lista\\
+			\hline 
+				Resumen & en este caso de uso se pueden añadir medicamentos ala base de datos\\
+			\hline
+				PreCondicion&haya una sesion activa\\
+			\hline
+				Actor & Vendedor o Administrador\\
+			\hline
+				Descripcion&\\
+				Flujo Principal&el actor preciona el boton agregar medicamento
+				\\&el servidor le pide que ingrese los campos codigo de barras,nombre,activo(s),distribuidor,precio de compra,precio de venta,existencia,docificacion,indicaciones medicas
+				\\&el actor ingresa los campos solicitados y preciona el boton agregar
+				\\&el servidor recupera los campos que el actor ingreso
+				\\&el servidor guarda la informacion el la base de datos\\
+			\hline
+				Flujo Secundario&el actor preciona el boto agregar medicamento\\
+				"error al recuperar los campos"&el servidor le pide que ingrese los campos codigo de barras,nombre,activo(s),distribuidor,precio de compra,precio de venta,existencia,docificacion,indicaciones medicas
+				\\&el actor ingresa los campos solicitados y preciona el boton agregar
+				\\&el servidor determina que los campos solicitados los a ingresado mal (en lugar de ingresar un entero ingreso una cadena)
+				\\&el servidor imprime el nombre del campo y le dice que deve ser un numero entero\\
+			\hline
+				Flujo Secundario&el actor preciona el boto agregar medicamento\\
+				"el actor no llena menos campos de los solicitados"&el servidor le pide que ingrese los campos codigo de barras,nombre,activo(s),distribuidor,precio de compra,precio de venta,existencia,docificacion,indicaciones medicas
+				\\&el actor no ingresa todos los campos solicitados y preciona el boton agregar
+				\\&el servidor determina que no a llenado todos los campos
+				\\&el servidor imprime es nesesario llenar todos los campos\\
+			\hline
+				Flujo Secundario&el actor preciona el boton agregar medicamento\\
+				"el medicamto ya existe en la base de datos"&el servidor le pide que ingrese los campos codigo de barras,nombre,activo(s),distribuidor,precio de compra,precio de venta,existencia,docificacion,indicaciones medicas
+				\\&el actor ingresa los campos solicitados y preciona el boton agregar
+				\\&el servidor recupera los campos que el actor ingreso
+				\\&mysql lanza una excion llave duplicada
+				\\&el servidor imprime la execion\\
+			\hline
+				PosCondicion&la base de datos se alla actualizado\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{p{3cm} p{11cm}}
+			\hline
+				Caso de Uso & Eliminar medicamento de la lista\\
+			\hline 
+				Resumen & En este caso de uso se eliminara un medicamento de la base de datos\\
+			\hline
+				PreCondicion&haya una sesion activa y el actor aya precionado elimar medicameto\\
+			\hline
+				Actor & Vendedor o Administrador\\
+			\hline
+				Descripcion&\\
+				Flujo Principal&el servidor le pide al actor los siguientes campos codigo de barras,distribuidor del medicamento
+				\\&el actor ingresa los campos solicitados
+				\\&el servidor recupera los campos
+				\\&el servidor elimina el medicamento de la base de datos\\
+			\hline
+				Flujo Secundario&el servidor le pide que ingrese los campos codigo de barras,distribuidor del medicamento\\
+				"error al recuperar los campos"& el actor ingresa los campos solicitados y preciona el boton eliminar
+				\\&el servidor determina que los campos solicitados los a ingresado mal (en lugar de ingresar un entero ingreso una cadena)
+				\\&el servidor imprime el nombre del campo y le dice que deve ser un numero entero\\
+			\hline
+				Flujo Secundario&el servidor le pide que ingrese los campos codigo de barras, distribuidor del medicamento\\
+				"el actor no llena menos campos de los solicitados"&el actor no ingresa todos los campos solicitados y preciona el boton eliminar
+				\\&el servidor determina que no a llenado todos los campos
+				\\&el servidor imprime es nesesario llenar todos los campos\\
+			\hline
+				Flujo Secundario&el servidor le pide que ingrese los campos codigo de barras, distribuidor del medicamento\\
+				"el medicamto no existe en la base de datos"&el actor ingresa los campos solicitados y preciona el boton eliminar
+				\\&el servidor recupera los campos que el actor ingreso
+				\\&mysql lanza una excion no existe el registro
+				\\&el servidor imprime la execion\\
+			\hline
+				PosCondicion&la base de datos tiene que estar actualizada\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{p{3cm} p{11cm}}
+			\hline
+				Caso de Uso & Modificar plantilla\\
+			\hline 
+				Resumen & se modifican los campos del medicamento\\
+			\hline
+				PreCondicion& aya una sesion activa del actor y se alla precionado el boton modificar plantilla\\
+			\hline
+				Actor & Administrador\\
+			\hline
+				Descripcion&\\
+				Flujo Principal&el servidor le pide que ingrese el nombre del campo a eliminar o añadir
+					\\&el actor ingresa el nombre de un campo y presiona un boton
+					\\&el servidor recupera el nombre del campo
+					\\&el servidor ejecuta la consulta de acuerdo con el boton pulsado\\
+			\hline
+				Flujo Secundario&el servidor le pide que ingrese el nombre del campo a elimnar o añadir\\
+					"no lleno el campo"&el actor no ingresa el campo y presiono uno de los botones
+					\\&el servidor imprime el mensaje es nesasario ingresara el campo\\
+			\hline
+				Flujo Secundario&el servidor le pide que ingrese el nombre del campo a eliminar o añadir\\
+					"el campo ya existe"&el actor ingresa el campo y presiona añadir	
+					\\&el servidor recupera el campo ejecuta la consulta
+					\\&mysql regresa una exepcion el campo existe ya
+					\\&el servidor imprime la excepcion\\
+			\hline
+				Flujo Secundario&el servidor le pide que ingrese el nombre del campo a eliminar o añadir\\
+					"el campo es parte de la llave"&el actor ingresa el campo y presiona eliminar
+					\\&el servidor recupera el campo y ejecuta la consulta
+					\\&mysql regresa una excepcion el campo es una llave
+					\\&el servidor imprime la excepcion\\
+			\hline
+				PosCondicion&base de datos actualizada\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{p{3cm} p{11cm}}
+			\hline
+				Caso de Uso & Añadir usuario\\
+			\hline 
+				Resumen & se añade un vendedor ala vase de datos\\
+			\hline
+				PreCondicion&Sesion activa del Administrador aver presionado gestionar Vendedores y despues presionado añadir\\
+			\hline
+				Actor & Administrador\\
+			\hline
+				Descripcion&\\
+				Flujo Principal&el servidor le pide el nombre, contraseña y farmacia del nuevo vendedor
+					\\&el actor ingresa los campos solicitados y presiona listo
+					\\&el servidor ejecuta la consulta ala vase de datos\\
+			\hline
+				Flujo Secundario&el servidor le pide el nombre, contraseña y farmacia del nuevo vendedor\\
+				"el vendedor ya existe"&el actor ingresa los campos solicitados y presiona listo
+				\\&el servidor ejecuta la consulta
+				\\&mysql lansa una excepcion el registro ya existe
+				\\&el servidor imprime la excepcion\\
+			\hline
+				Flujo Secundario&el servidor le pide el nombre, contraseña y farmacia del nuevo vendedor\\
+				"no lleno todos los campos"&el actor no ingresa todos los campos solicitados y presiona listo
+				\\&el servidor determina que el actor no ingreso todos los campos
+				\\&el servidor imprime deve llenar todos los campos\\
+			\hline
+				PosCondicion&averse añadido un registro ala tabla vendedores\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{p{3cm} p{11cm}}
+			\hline
+				Caso de Uso & Eliminar usuario\\
+			\hline 
+				Resumen & se elimina un vendedor ala vase de datos\\
+			\hline
+				PreCondicion&Sesion activa del Administrador aver presionado gestionar Vendedores y despues presionado eliminar\\
+			\hline
+				Actor & Administrador\\
+			\hline
+				Descripcion&\\
+				Flujo Principal&el servidor le pide el nombre y farmacia del vendedor
+					\\&el actor ingresa los campos solicitados y presiona listo
+					\\&el servidor ejecuta la consulta ala vase de datos\\
+			\hline
+				Flujo Secundario&el servidor le pide el nombre y farmacia del vendedor\\
+				"el vendedor no existe"&el actor ingresa los campos solicitados y presiona listo
+				\\&el servidor ejecuta la consulta
+				\\&mysql lansa una excepcion el registro no existe
+				\\&el servidor imprime la excepcion\\
+			\hline
+				Flujo Secundario&el servidor le pide el nombre y farmacia del vendedor\\
+				"no lleno todos los campos"&el actor no ingresa todos los campos solicitados y presiona listo
+				\\&el servidor determina que el actor no ingreso todos los campos
+				\\&el servidor imprime deve llenar todos los campos\\
+			\hline
+				PosCondicion&averse eleminado un registro de la tabla vendedores\\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{p{3cm} p{11cm}}
+			\hline
+				Caso de Uso & Modificar usuario\\
+			\hline 
+				Resumen & se modifica el nombre o contraseña o farmacia de un vendedor en la base de datos\\
+			\hline
+				PreCondicion&Sesion activa del Administrador aver presionado gestionar Vendedores y despues presionado modificar\\
+			\hline
+				Actor & Administrador\\
+			\hline
+				Descripcion&\\
+				Flujo Principal&el servidor le pide el nombre y farmacia del vendedor
+					\\&el actor ingresa los campos solicitados y presiona listo
+					\\&el servidor ejecuta la consulta ala vase de datos
+					\\&el servidor muestra la informacio y le pide que modifique el campo que desee
+					\\&el actor modifica los campos y presional listo 
+					\\&el servidor guarda la informacion\\
+			\hline
+				Flujo Secundario&el servidor le pide el nombre y farmacia del vendedor\\
+				"el vendedor ya existe"&el actor ingresa los campos solicitados y presiona listo
+				\\&el servidor ejecuta la consulta
+				\\&el servidor muestra la informaicon y le pide que modifique el campo que desee
+				\\&el actor modifica los campos y presiona listo
+				\\&el servidor guarda la informacion
+				\\&mysql determina que el vendedor esta repetido y lanza una excepcion 
+				\\&el servidor imprime la excepcion\\
+			\hline
+				Flujo Secundario&el servidor le pide el nombre y farmacia del vendedor\\
+				"no lleno todos los campos"&el actor no ingresa todos los campos solicitados y presiona listo
+				\\&el servidor determina que el actor no ingreso todos los campos
+				\\&el servidor imprime deve llenar todos los campos\\
+			\hline
+				PosCondicion&se modifico registro ala tabla vendedores\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+\end{document}

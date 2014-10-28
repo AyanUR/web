@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script type="text/javascript">
+            function ocultaBottonsPutSerch(tipeSerch){
+                atributoHiddenofDiv=document.createAttribute("hidden");
+                document.getElementById("tipeSerch").attributes.setNamedItem(atributoHiddenofDiv);
+                if(tipeSerch=="name"||tipeSerch=="barcode")
+                    document.getElementById("sugerencias").innerHTML="ingrese el "+tipeSerch+" del medicamento";
+                else
+                    document.getElementById("sugerencias").innerHTML="ingrese el numero de activos";
+                document.getElementById("tags").setAttribute("name",tipeSerch);
+                document.getElementById("serch").removeAttribute("hidden");
+                document.getElementById("send").removeAttribute("hidden");
+            }
+        </script>
+        <script type="text/javascript" src="autocompletado.js"></script>
+    </head>
+    <body style="color:brown;font-size:31px;">
+        <form action="Consulta" method="POST">
+        <h1 align="center">bienvenidos<br>consulta de medicamentos en linea</h1>
+        <div id="tipeSerch">
+            <br>precione el metodo por el cual desea buscar
+            <br><input id="name" type="button" onclick="ocultaBottonsPutSerch('name');" value="nombre" />
+            <br><input id="barcode" type="button" onclick="ocultaBottonsPutSerch('barcode');" value="codigo de barras" />
+            <br><input id="activos" type="button" onclick="ocultaBottonsPutSerch('activos');" value="activos" />
+        </div>
+        <div id="serch" hidden>
+            <label id="sugerencias" for="tags"></label>
+            <input id="tags" type="text" onkeyup="completa();"/>
+        </div>
+        <input id="send" type="submit" value="enviar" hidden/>
+        </form>
+    </body>
+</html>

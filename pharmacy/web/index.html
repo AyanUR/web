@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>ADOO 2CM7 | Home</title>
+        <link rel="icon" href="imagenes/escom.ico">
+        <link rel="shortcut icon" href="imagenes/escom.ico" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <!--slider-->
+        <link href="css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+        <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+        <script type="text/javascript">
+            $(window).load(function() {
+                $('#slider').nivoSlider();
+            });
+        </script>
+
+        <script type="text/javascript">
+            function client() {
+                document.getElementById("login").attributes.setNamedItem(document.createAttribute("hidden"));
+                document.getElementById("consulta").removeAttribute("hidden");
+            }
+            function vendorManager() {
+                document.getElementById("consulta").attributes.setNamedItem(document.createAttribute("hidden"));
+                document.getElementById("login").removeAttribute("hidden");
+            }
+        </script>
+        <script type="text/javascript" src="autocompletado.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header-top">
+                <div class="wrap">
+                    <div class="logo">
+                        <table>
+                            <tr><td><img src="imagenes/escom_transparent.png" alt="ECOM"></td>
+                                <td width="600px">&nbsp;</td>
+                                <td align="left"><img src="imagenes/logo_empresa_transparent.png" alt="WASD"></td></tr>
+                            <tr>
+                                <td colspan="3" align="center" height="125px" ><img src="imagenes/head.png" alt=""></td></tr>
+                        </table>
+
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+        <!------ Slider ------------>
+        <div class="slider">
+            <div class="wrap">
+                <div class="slider-wrapper theme-default">
+                    <div id="slider" class="nivoSlider">
+                        <img src="imagenes/1.jpg" alt="" />
+                        <img src="imagenes/2.jpg" alt="" />
+                        <img src="imagenes/3.jpg" alt="" />
+                        <img src="imagenes/4.jpg" alt="" />
+                        <img src="imagenes/5.jpg" alt="" />
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!------End Slider ------------>
+        <div class="content-top">
+            <div class="wrap" align="center">
+                <p class="content">Elija el tipo de usuario</p><br><br>
+                <table class="" align="center" width="500px">
+                    <tr>
+                        <td class="">
+                            <input type="button" onclick="client();" value="Cliente" class="boton" />
+                        </td>
+
+                        <td width="600px">&nbsp;</td>
+
+                        <td class="">
+                            <input type="button" onclick="vendorManager();" value="Vendedor" class="boton" />
+                        </td></tr>
+
+                </table>
+
+                <div class="clear"></div>
+
+                <div id="consulta" class="consulta" hidden>
+                    <br><a href="consulta.html" target="blank">Consulta de medicamento</a>
+                    <form action="Consulta" method="POST">
+                        <br><br>
+                        <input type="submit" value="Lista de medicamentos" class="boton"/>
+                    </form>
+                </div>
+                <div id="login" class="login" hidden>
+                    <form action="Login" method="POST">
+                        <center><br><br>
+                        <select id="usuario" name="selector" style="color:blueviolet;font-size:21px;">
+                            <option value="administrador">administrador</option>
+                            <option value="vendedor">vendedor</option>
+                        </select>
+                        <br>usuario<input type="text" name="user"/>
+                        <br>contrasena<input type="password" name="password" />
+                        <br><input type="reset" value="limpiar" /> <input type="submit" value="entrar" />
+                        </center>
+                        <table class="" align="center" width="500px">
+                            <tr>
+                                <td class="">
+                                    <input type="reset" value="Limpiar" class="boton"/>
+                                </td>
+
+                                <td width="400px">&nbsp;</td>
+
+                                <td class="">
+                                    <input type="submit" value="Entrar" class="boton"/>
+                                </td></tr>
+
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="content-middle">
+        <div class="wrap">
+            <div class="middle-content">
+
+                <hr class="hr1"><br>
+                <hr class="hr2">
+                <p>Elaborado por:<br><a href="https://www.facebook.com/mauricio.ibarrapaleta?fref=ts" target="blank">Ibarra Paleta Mauricio Michelle</a>, <a href="https://www.facebook.com/PlataE93?fref=ts" target="blank">Negrete Plata Emmanuel</a>, <a href="https://www.facebook.com/hector.nolasco.35?fref=ts" target="blank">Nolasco Esquivel Héctor</a>
+                    <br>y <a href="https://www.facebook.com/ayan.urban?fref=ts" target="blank">Urban Reyes Adan</a></p>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="wrap">
+            <div class="copy">
+                <p>Análisis y Diseño Orientado a Objetos | 2CM7 <br>Profesora: Tanibet Pérez de los Santos Mondragón | Designed by WASD</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
